@@ -1,8 +1,14 @@
 import config from "./src/config/anu.json";
+
 import CoverPage from "./src/components/CoverPage";
+import LetterPage from "./src/components/LetterPage";
+
+import "./src/components/css/CoverPage.css";
+import "./src/components/css/LetterPage.css";
 
 const componentMap = {
   cover: CoverPage,
+  letter: LetterPage,
 };
 
 export default function Home() {
@@ -20,6 +26,7 @@ export default function Home() {
           <Component
             key={index}
             {...page}
+            name={config.recipient.name}
           />
         );
       })}

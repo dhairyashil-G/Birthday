@@ -1,13 +1,25 @@
 {
   "recipient": {
-    "name": "Anushree"
+    "name": "Annu"
   },
 
   "pages": [
     {
       "type": "cover",
-      "title": "Happy Birthday Annu",
-      "subtitle": "A scrapbook made with love"
+      "title": "Happy Birthday",
+      "subtitle": "A scrapbook of our memories",
+      "photos": [
+        "/photos/cover3.jpeg",
+        "/photos/cover1.jpeg",
+        "/photos/cover2.jpeg"
+      ]
+    },
+
+    {
+      "type": "letter",
+      "heading": "Dear Annu ❤️",
+      "content": "Today is your special day...",
+      "signature": "Dhairyashil"
     }
   ]
 }

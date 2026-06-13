@@ -1,0 +1,36 @@
+.letter-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f5efe6;
+
+  padding: 40px;
+}
+
+.letter-paper {
+  max-width: 800px;
+
+  background: white;
+
+  padding: 60px;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.15);
+
+  line-height: 2;
+
+  color: #4b2e2e;
+}
+
+.signature {
+  margin-top: 40px;
+
+  text-align: right;
+
+  font-size: 1.2rem;
+}
