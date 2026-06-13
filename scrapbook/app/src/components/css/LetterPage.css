@@ -1,36 +1,297 @@
+/* ===========================
+   LETTER PAGE
+=========================== */
+
 .letter-page {
+
   min-height: 100vh;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background: #f5efe6;
+  padding: 80px 20px;
 
-  padding: 40px;
+  background:
+    linear-gradient(
+      135deg,
+      #f7ecdf,
+      #efe0cf
+    );
 }
 
-.letter-paper {
-  max-width: 800px;
+/* ===========================
+   PAPER
+=========================== */
 
-  background: white;
+.letter-paper {
+
+  width: 100%;
+  max-width: 900px;
+
+  background: #fffdf8;
 
   padding: 60px;
 
-  border-radius: 12px;
+  border-radius: 16px;
 
   box-shadow:
-    0 20px 40px rgba(0,0,0,.15);
+    0 25px 60px rgba(0,0,0,.15);
+
+  position: relative;
+}
+
+/* ===========================
+   HEADING
+=========================== */
+
+.letter-heading {
+
+  font-size: 3rem;
+
+  color: #4a2c2a;
+
+  margin-bottom: 35px;
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+.letter-text {
+
+  font-size: 1.2rem;
 
   line-height: 2;
 
-  color: #4b2e2e;
+  color: #5f4a42;
+
+  white-space: pre-line;
 }
 
+/* ===========================
+   MEMORY ROW
+=========================== */
+
+.memory-row {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 50px;
+
+  margin: 60px 0;
+
+  width: 100%;
+}
+
+.memory-row.reverse {
+
+  justify-content: space-between;
+}
+
+.memory-text {
+
+  flex: 1;
+
+  font-size: 1.1rem;
+
+  line-height: 2;
+
+  color: #5f4a42;
+}
+
+/* ===========================
+   POLAROID
+=========================== */
+
+.polaroid {
+
+  flex-shrink: 0;
+
+  width: 180px;
+
+  background: white;
+
+  padding:
+    8px
+    8px
+    25px;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+
+  position: relative;
+
+  transition: all .3s ease;
+}
+
+/* First image */
+
+.memory-row .polaroid {
+
+  transform: rotate(-6deg);
+}
+
+/* Second image */
+
+.memory-row.reverse .polaroid {
+
+  transform: rotate(6deg);
+
+  margin-left: auto;
+}
+
+.polaroid:hover {
+
+  transform: scale(1.05);
+}
+
+.memory-row .polaroid:hover {
+
+  transform:
+    rotate(-6deg)
+    scale(1.05);
+}
+
+.memory-row.reverse .polaroid:hover {
+
+  transform:
+    rotate(6deg)
+    scale(1.05);
+}
+
+.polaroid img {
+
+  width: 100%;
+
+  height: 140px;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 4px;
+}
+
+/* ===========================
+   TAPE
+=========================== */
+
+.tape {
+
+  position: absolute;
+
+  top: -12px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    rotate(-5deg);
+
+  width: 80px;
+
+  height: 24px;
+
+  background:
+    rgba(255,255,255,.6);
+
+  border:
+    1px solid rgba(0,0,0,.08);
+
+  backdrop-filter: blur(2px);
+}
+
+/* ===========================
+   CAPTION
+=========================== */
+
+.caption {
+
+  text-align: center;
+
+  margin-top: 10px;
+
+  font-size: 0.9rem;
+
+  color: #6b4f4f;
+}
+
+/* ===========================
+   SIGNATURE
+=========================== */
+
 .signature {
-  margin-top: 40px;
+
+  margin-top: 60px;
 
   text-align: right;
 
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+
+  color: #4a2c2a;
+
+  line-height: 1.8;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+
+  .letter-paper {
+
+    padding: 30px;
+  }
+
+  .letter-heading {
+
+    font-size: 2rem;
+  }
+
+  .letter-text {
+
+    font-size: 1rem;
+  }
+
+  .memory-row,
+  .memory-row.reverse {
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .memory-text {
+
+    text-align: center;
+  }
+
+  .memory-row .polaroid,
+  .memory-row.reverse .polaroid {
+
+    margin: 0 auto;
+
+    transform: rotate(0deg);
+  }
+
+  .polaroid {
+
+    width: 170px;
+  }
+
+  .polaroid img {
+
+    height: 130px;
+  }
+
+  .signature {
+
+    font-size: 1.3rem;
+  }
 }

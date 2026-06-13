@@ -1,3 +1,5 @@
+"use client";
+
 import AnimatedTitle from "./AnimatedTitle";
 import FloatingBalloons from "./FloatingBalloons";
 import PolaroidStack from "./PolaroidStack";
@@ -15,6 +17,18 @@ export default function CoverPage({
   subtitle,
   photos,
 }: Props) {
+
+  const handleOpenScrapbook = () => {
+    const letterPage = document.getElementById("letter-page");
+
+    if (letterPage) {
+      letterPage.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section className="cover-page">
 
@@ -34,8 +48,11 @@ export default function CoverPage({
           {subtitle}
         </p>
 
-        <button className="open-btn">
-          Open Scrapbook
+        <button
+          className="open-btn"
+          onClick={handleOpenScrapbook}
+        >
+          Open Letter ❤️
         </button>
 
       </div>

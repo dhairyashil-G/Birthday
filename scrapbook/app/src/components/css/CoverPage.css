@@ -27,8 +27,16 @@ body {
 }
 
 .title {
-  font-size: 4rem;
-  color: #3b2f2f;
+  font-size: 3rem;
+  font-weight: 600;
+   color: #5a3e36;
+  letter-spacing: 1px;
+}
+
+.recipient {
+  font-size: 1.8rem;
+  font-weight: 400;
+     color: #5a3e36;
 }
 
 .letter {
@@ -55,11 +63,6 @@ body {
   }
 }
 
-.recipient {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #5a3e36;
-}
 .subtitle {
   font-size: 1.2rem;
   margin-top: 30px;
@@ -106,17 +109,19 @@ body {
 
   background: white;
 
-  padding: 10px;
-
-  position: absolute;
-
-  left: 50%;
-
-  transform-origin: center;
+  padding:
+    10px
+    10px
+    35px;
 
   box-shadow:
-  0 10px 25px
-  rgba(0,0,0,.15);
+    0 10px 25px rgba(0,0,0,.15);
+
+  margin-top: 40px;
+
+  position: relative;
+
+  transition: all .3s ease;
 }
 
 .polaroid img {
@@ -183,6 +188,52 @@ body {
   }
 }
 
+.polaroid-stack {
+
+  position: relative;
+
+  width: 400px;
+  height: 320px;
+
+  margin: 40px auto;
+}
+
+.polaroid-card {
+
+  position: absolute;
+
+  width: 220px;
+
+  background: white;
+
+  padding: 12px 12px 50px;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.18);
+
+  transition: .3s;
+}
+
+.polaroid-card:hover {
+
+  transform:
+    scale(1.05) !important;
+
+  z-index: 99;
+}
+
+.polaroid-card img {
+
+  width: 100%;
+  height: 250px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
 /*---------------------------------------------Letter Page Css */
 
 .letter-page {
@@ -236,3 +287,26 @@ body {
   font-size: 1.3rem;
 }
 /* ----------------------------- */
+
+.card-0 {
+  left: 20px;
+  top: 40px;
+
+  transform: rotate(-12deg);
+}
+
+.card-1 {
+  left: 90px;
+  top: 10px;
+
+  z-index: 2;
+
+  transform: rotate(0deg);
+}
+
+.card-2 {
+  left: 170px;
+  top: 40px;
+
+  transform: rotate(12deg);
+}
