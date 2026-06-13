@@ -1,4 +1,4 @@
-import config from "./src/config/anu.json";
+import configJson from "./src/config/anu.json";
 
 import CoverPage from "./src/components/CoverPage";
 import LetterPage from "./src/components/LetterPage";
@@ -6,29 +6,45 @@ import LetterPage from "./src/components/LetterPage";
 import "./src/components/css/CoverPage.css";
 import "./src/components/css/LetterPage.css";
 
-const componentMap = {
-  cover: CoverPage,
-  letter: LetterPage,
-};
+import type { ScrapbookConfig } from "./src/types/scrapbook";
+
+const config = configJson as ScrapbookConfig;
 
 export default function Home() {
+  const { name } = config.recipient;
+
   return (
     <>
       {config.pages.map((page, index) => {
-        const Component =
-          componentMap[
-            page.type as keyof typeof componentMap
-          ];
+        if (page.type === "cover") {
+          return (
+            <CoverPage
+              key={index}
+              name={name}
+              title={page.title}
+              subtitle={page.subtitle}
+              photos={page.photos}
+            />
+          );
+        }
 
-        if (!Component) return null;
+        if (page.type === "letter") {
+          return (
+            <LetterPage
+              key={index}
+              heading={page.heading}
+              contentTop={page.contentTop}
+              image1={page.image1}
+              contentImgRight={page.contentImgRight}
+              image2={page.image2}
+              contentImgLeft={page.contentImgLeft}
+              contentBottom={page.contentBottom}
+              signature={page.signature}
+            />
+          );
+        }
 
-        return (
-          <Component
-            key={index}
-            {...page}
-            name={config.recipient.name}
-          />
-        );
+        return null;
       })}
     </>
   );
